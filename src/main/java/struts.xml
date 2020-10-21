@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+   <!-- <constant name = "struts.devMode" value = "true" /> -->
+   <package name = "action"  extends = "struts-default">
+     
+       <action name = "welcome" method = "welcome"
+         class = "com.barry.myStruts.action.UserAction">
+         <result name = "SUCCESS">pages/displayAction.jsp</result>
+     
+      </action>
+       
+       <action name = "update" method = "update"
+         class = "com.barry.myStruts.action.UpdateAction">
+        <!--  <result name = "UPDATE" >pages/updateReport.jsp</result> -->
+          <result name = "UPDATE" type="redirectAction">welcome</result>
+     
+      </action>
+      <action name = "updateForm" method = "update"
+         class = "com.barry.myStruts.action.UpdateFormAction">
+         <result name = "SUCCESS" >pages/update.jsp</result>
+     
+      </action>
+       <action name = "create" method = "create"
+         class = "com.barry.myStruts.action.createAction">
+         <result name = "CREATE">pages/updateReport.jsp</result>
+     
+      </action>
+      
+       <action name = "delete" method = "delete"
+         class = "com.barry.myStruts.action.DeleteAction">
+         <result name = "DELETE" type="redirectAction">welcome</result>
+     
+      </action>
+       <action name = "display" method = "display"
+         class = "com.barry.myStruts.action.getDetailPersonAction">
+         <result name = "SUCCESS">pages/displayPersonDetails.jsp</result>
+     
+      </action>
+   </package>
+</struts>
