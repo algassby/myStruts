@@ -4,13 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link  rel="stylesheet"  type="text/css" href="css/myApp.css">
+<%-- <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script> --%>
 <title>my first way in Struts</title>
 </head>
 <body>
-<div style="margin: auto;margin-left: auto;margin-right: auto;">
+<div id="entete">
 <p style="font-size: 20">HELLO</p>
 <p><s:property value="username"/></p>
-<h4>Tableau de personne</h4>
+<h4>Liste des personnes</h4>
 <table id="table-1" border="1">
 	<thead>
 		<tr>
@@ -59,7 +61,8 @@
 		<s:submit  name="ajouter" value="ajouter"></s:submit>
 	</s:form>
 </table>
-
+<button class="btn" type="button">changer</button>
 </div>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 </body>
 </html>
