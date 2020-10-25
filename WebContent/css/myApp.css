@@ -1,12 +1,12 @@
 body{
-	background-color: orange;
+	background-color: gray;
+	
 }
 
 
 #entete{
-	/* margin: auto;
 	margin-right: auto;
-	margin-left: auto; */
+	margin-left: 250px; 
 	
 }
 
@@ -22,3 +22,7 @@ td a{
 	display: inline-block;
 	margin-left: 5 px;
 }
+.corps{
+	margin-right: auto;
+	margin-left: 250px; 
+} 

@@ -18,6 +18,7 @@ public class DaoJDBCImplUSER implements Dao<Person>{
 	
 	public DaoJDBCImplUSER() {
 		logger = Logger.getLogger(this.getClass().getName());
+		
 	}
 
 	@Override

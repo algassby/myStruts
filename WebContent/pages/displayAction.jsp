@@ -6,13 +6,16 @@
 <meta charset="ISO-8859-1">
 <link  rel="stylesheet"  type="text/css" href="css/myApp.css">
 <%-- <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script> --%>
+
 <title>my first way in Struts</title>
 </head>
 <body>
 <div id="entete">
-<p style="font-size: 20">HELLO</p>
-<p><s:property value="username"/></p>
-<h4>Liste des personnes</h4>
+	<p style="font-size: 20">HELLO</p>
+	<p><s:property value="username"/></p>
+	<h4>Liste des personnes</h4>
+</div>
+<div class = "corps">
 <table id="table-1" border="1">
 	<thead>
 		<tr>
@@ -27,24 +30,26 @@
 		</tr>
 	</thead>
 	<s:iterator value="list">
-	<tbody>
+	<tbody class="tbbody">
 		<tr>
-			<td><s:property value="id"/></td>
-			<td><s:property value="nom"/></td>
+			<td id="id" ><s:property value="id"/></td>
+			<td id="nom" id = "nom" class="nom-<s:property value="id"/>" data-id="<s:property value="id"/>"><s:property value="nom"/></td>
 			<td><s:property value="age"/></td>
-			<td><s:property value="sexe"/></td>
+			<td class="sexe" id="sexe-<s:property value="id"/>"><s:property value="sexe"/></td>
 			<td><s:property value="fonction"/></td>
 			<td><s:property value="poste"/></td>
 			<td><s:property value="tel"/></td>
 			
 			<td><s:url action="updateForm" var="urlTag">
 			
-				<s:param name="id"><s:property value="id"/> </s:param></s:url>
+				<s:param name="id" ><s:property value="id"/> </s:param></s:url>
 				<a href='<s:property value="#urlTag"/>'> modifier </a>
 				<!-- delete -->
 				<s:url action="delete" var="urlTag">
 				<s:param name="id"><s:property value="id"/> </s:param></s:url>
-				<a href='<s:property value="#urlTag"/>'> supprimer </a>
+				<%-- <a onclick="getAjax()" href='<s:property value="#urlTag"/>'> supprimer </a> --%>
+				<a  href='<s:property value="#urlTag"/>'> supprimer </a>
+				<button class="delete" type="button">supprimer</button>
 			</td>
 		</tr>
 	</tbody>
@@ -64,5 +69,6 @@
 <button class="btn" type="button">changer</button>
 </div>
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/myApp.js"></script>
 </body>
 </html>
