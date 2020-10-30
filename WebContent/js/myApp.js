@@ -44,22 +44,74 @@ $( document ).ready(function() {
 	});
 	
 	//AJax delete
-	
-	$(".delete").on('click',function(){
-		
-		
-	$.ajax({
+	//
+	/*	var id = $(this).parent("td").parent("tr").find("td#id").data("id");
+		console.log(id);
+		$("tbody tr").each(function(){
+			
+			$(this).find("td.id-"+id).parent().remove();
+			$.ajax({
 		type : "POST",
 		url : "myStruts/delete.action",
-		data: id,
-		
-		success : function bougier(data){
-			var id = $("#id").html();
-			console.log(data+""+id);
+		data: {
+			id:id
 		},
-		error : alert('error')
+		
+		success : function (response){
+			var id = $("#id").html();
+			console.log(response+""+id);
+		},
+		error : function(){
+			alert("Error");
+		}
 	});
+			
+		}); */
+	//
+	
+	$("button.delete").on('click',function(){
+	swal({
+	  title: "voulez-vous vraiment supprimer cette personne?",
+	  text: "Une fois supprimé, vous ne pourrez plus récupérer cette personne !",
+	  icon: "warning",
+	  buttons: true,
+	  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+	var id = $(this).parent("td").parent("tr").find("td#id").data("id");
+		console.log(id);
+		$("tbody tr").each(function(){
+			
+			$(this).find("td.id-"+id).parent().remove();
+			$.ajax({
+		type : "POST",
+		url : "myStruts/delete.action",
+		data: {
+			id:id
+		},
+		success : function (response){
+			var id = $("#id").html();
+			console.log(response+""+id);
+			swal("la personne a été supprimé", {
+      icon: "success",
+    });
+		},
+		error : function(){
+			alert("Error");
+		}
+	});
+			
+		});
+    
+  } else {
+    swal("vous avez annulez!");
+  }
 });
+	
+});
+
+
 	
 	
 });

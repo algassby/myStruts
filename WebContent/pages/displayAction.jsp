@@ -5,6 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link  rel="stylesheet"  type="text/css" href="css/myApp.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <%-- <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script> --%>
 
 <title>my first way in Struts</title>
@@ -32,7 +33,7 @@
 	<s:iterator value="list">
 	<tbody class="tbbody">
 		<tr>
-			<td id="id" ><s:property value="id"/></td>
+			<td id="id" class="id-<s:property value="id"/>" data-id="<s:property value="id"/>"><s:property value="id"/></td>
 			<td id="nom" id = "nom" class="nom-<s:property value="id"/>" data-id="<s:property value="id"/>"><s:property value="nom"/></td>
 			<td><s:property value="age"/></td>
 			<td class="sexe" id="sexe-<s:property value="id"/>"><s:property value="sexe"/></td>
@@ -43,13 +44,13 @@
 			<td><s:url action="updateForm" var="urlTag">
 			
 				<s:param name="id" ><s:property value="id"/> </s:param></s:url>
-				<a href='<s:property value="#urlTag"/>'> modifier </a>
+				<a class="btn btn-success" href='<s:property value="#urlTag"/>'> modifier </a>
 				<!-- delete -->
-				<s:url action="delete" var="urlTag">
+				<%-- <s:url action="delete" var="urlTag">
 				<s:param name="id"><s:property value="id"/> </s:param></s:url>
-				<%-- <a onclick="getAjax()" href='<s:property value="#urlTag"/>'> supprimer </a> --%>
-				<a  href='<s:property value="#urlTag"/>'> supprimer </a>
-				<button class="delete" type="button">supprimer</button>
+				<a onclick="getAjax()" href='<s:property value="#urlTag"/>'> supprimer </a>
+				<a  href='<s:property value="#urlTag"/>'> supprimer </a> --%>
+				<button class="btn btn-danger delete"  type="button">supprimer</button>
 			</td>
 		</tr>
 	</tbody>
@@ -68,6 +69,9 @@
 </table>
 <button class="btn" type="button">changer</button>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="js/myApp.js"></script>
 </body>
