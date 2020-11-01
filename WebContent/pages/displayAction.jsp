@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://displaytag.sf.net" prefix="display" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +68,21 @@
 		<s:submit  name="ajouter" value="ajouter"></s:submit>
 	</s:form>
 </table>
+
 <button class="btn" type="button">changer</button>
+</div>
+<div class="down">
+	<display:table name="list" export="true" requestURI="" cellspacing="2" style="" >
+	<display:column property="id" title="ID" sortable="true" media="excel"></display:column>
+	<display:column property="nom" title="NOM" media="excel"></display:column>
+	<display:column property="age" title="AGE" media="excel"></display:column>
+	<display:column property="sexe" title="SEXE" media="excel"></display:column>
+	<display:column property="fonction" title="FONCTION" media="excel"></display:column>
+	<display:setProperty name="export.pdf" value="true" />
+ 	<display:setProperty name="export.excel" value="true" />
+ 	<display:setProperty name="export.csv" value="true" />
+ 	<display:setProperty name="export.xml" value="true" />
+	</display:table>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
